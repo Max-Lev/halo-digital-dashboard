@@ -1,11 +1,21 @@
+<section class="container">
 
-<!-- <section *ngFor="let data of users">
-  {{data['results'] | json}}
-  <div>-----</div>
-</section> -->
+  <section class="list-container">
+    <app-user-details-list (selectedUserEmitter)="selectedUserHandler($event)" [usersListModel]="usersListModel"></app-user-details-list>
+  </section>
 
-<p>
-  <a [routerLink]="['.','1']">AAA</a>
-</p>
+  <section class="cards-container">
+    <app-user-details-card (cardEventEmitter)="cardEventEmitterHandler($event)" [userDetailsModel]="userDetailsModel"></app-user-details-card>
+  </section>
 
+</section>
 <router-outlet></router-outlet>
+
+
+
+
+
+
+<!-- <p>
+  <a [routerLink]="['.','1']">AAA</a>
+</p> -->

@@ -1,0 +1,20 @@
+<section (click)="cardDetails(userDetailsModel)" class="card-container" *ngIf="userDetailsModel!==undefined">
+  <mat-card class="example-card">
+
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Hi, my name is</mat-card-title>
+      <mat-card-title>
+        <h1>{{userDetailsModel.name.first}} {{userDetailsModel.name.last}}</h1>
+      </mat-card-title>
+    </mat-card-header>
+
+    <img mat-card-image [src]="userDetailsModel.picture.large" alt="">
+    <mat-card-content>
+      <p>
+        
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</section>

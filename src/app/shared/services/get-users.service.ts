@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin } from '../../../../node_modules/rxjs';
-import { Subject } from '../../../../node_modules/rxjs';
-import { BehaviorSubject, interval, from } from '../../../../node_modules/rxjs';
-import { mergeMap, switchMap, repeat, merge, combineAll, combineLatest, take, map, concat } from 'rxjs/operators';
-import * as Rx from 'rxjs';
-import { of } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

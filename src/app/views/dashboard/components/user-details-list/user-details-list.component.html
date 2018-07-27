@@ -1,0 +1,4 @@
+<mat-list role="list" *ngFor="let user of usersListModel">
+  <mat-list-item (click)="selectedUser(user)" role="listitem">{{user['name']['first']}} {{user['name']['last']}}</mat-list-item>
+</mat-list>
+

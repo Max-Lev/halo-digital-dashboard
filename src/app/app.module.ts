@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import 'hammerjs';
 import { AppComponent } from './app.component';
 import { GetUsersService } from './shared/services/get-users.service';
-import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRouterModule } from './app-router/app-router.module';
-import { RouterModule } from '../../node_modules/@angular/router';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

@@ -1,27 +1,37 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardContainerComponent } from './components/dashboard-container/dashboard-container.component';
-import { Routes, RouterModule } from '../../../../node_modules/@angular/router';
-import { UserDetailsContainerComponent } from './components/user-details-container/user-details-container.component';
+import { Routes, RouterModule } from '@angular/router';
+import { UserDetailsListComponent } from './components/user-details-list/user-details-list.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { UserDetailsCardComponent } from './components/user-details-card/user-details-card.component';
+import { DetailsComponent } from './components/details/details.component';
+
 
 const routes: Routes = [
   {
     path: '', component: DashboardContainerComponent,
-    children: [
-      {
-        path: ':id', component: UserDetailsContainerComponent
-      }
-    ]
+  },
+  {
+    path:':id',component:DetailsComponent
+  },
+  {
+    path: '', redirectTo: 'dashboard', pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatListModule,
+    MatCardModule
   ],
   declarations: [
     DashboardContainerComponent,
-    UserDetailsContainerComponent]
+    UserDetailsCardComponent,
+    UserDetailsListComponent,
+    DetailsComponent]
 })
 export class DashboardModule { }
