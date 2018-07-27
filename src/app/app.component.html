@@ -1,2 +1,5 @@
-<div>list</div>
+<section class="list-container">
+  <app-user-details-list (selectedUserEmitter)="selectedUserHandler($event)" [usersListModel]="usersListModel"></app-user-details-list>
+</section>
+
 <router-outlet></router-outlet>

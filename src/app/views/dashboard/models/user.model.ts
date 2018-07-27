@@ -18,7 +18,8 @@ export interface IUserModel {
         large: string;
         medium: string;
         thumbnail: string;
-    }
+    };
+    voteCounter: number;
 };
 
 
@@ -30,6 +31,7 @@ export class UserModel implements IUserModel {
     phone: string;
     login: { password: string; };
     picture: { large: string; medium: string; thumbnail: string; };
+    voteCounter: number = 0;
     constructor(user: IUserModel) {
         this.name = { ...user.name };
         this.email = user.email;
@@ -37,9 +39,8 @@ export class UserModel implements IUserModel {
         this.location = { ...user.location };
         this.phone = user.phone;
         this.login = { ...user.login };
-        this.picture = {...user.picture}
-
-        console.log(this);
+        this.picture = { ...user.picture };
+        this.voteCounter = (user.voteCounter === undefined) ? 0 : user.voteCounter;
     };
 
 }

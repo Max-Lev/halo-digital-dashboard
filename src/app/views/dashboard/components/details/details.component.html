@@ -1,3 +1,7 @@
-<p>
-  details works!
-</p>
+<section class="cards-container">
+  <app-user-details-card [userDetailsModel]="userDetailsModel">
+    <section>
+      <button (click)="vote(userDetailsModel)" class="user">Vote</button>
+    </section>
+  </app-user-details-card>
+</section>

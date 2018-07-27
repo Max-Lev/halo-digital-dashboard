@@ -1,4 +1,6 @@
 <mat-list role="list" *ngFor="let user of usersListModel">
   <mat-list-item (click)="selectedUser(user)" role="listitem">{{user['name']['first']}} {{user['name']['last']}}</mat-list-item>
+  <ng-container *ngIf="user.voteCounter > 0">
+    <div>{{user.voteCounter}}</div>
+  </ng-container>
 </mat-list>
-

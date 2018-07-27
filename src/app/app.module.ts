@@ -6,19 +6,25 @@ import { GetUsersService } from './shared/services/get-users.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRouterModule } from './app-router/app-router.module';
 import { RouterModule } from '@angular/router';
+import { UserDetailsListComponent } from './components/user-details-list/user-details-list.component';
+import { MatListModule } from '../../node_modules/@angular/material/list';
+import { VoteCounterService } from './shared/services/vote-counter.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserDetailsListComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRouterModule,
     RouterModule,
+    MatListModule,
   ],
   providers: [
-    GetUsersService
+    GetUsersService,
+    VoteCounterService
   ],
   bootstrap: [AppComponent]
 })

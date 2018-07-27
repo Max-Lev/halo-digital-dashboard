@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, BehaviorSubject } from 'rxjs';
 import { Subject } from 'rxjs';
+import { UserModel } from '../../views/dashboard/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,13 @@ export class GetUsersService {
 
   users$: Subject<any> = new Subject();
 
-  constructor(private http: HttpClient) {
+  usersList: any[] = [];
 
-  };
+  selectedUser$: BehaviorSubject<any> = new BehaviorSubject(null);
+
+  activeUser: UserModel;
+
+  constructor(private http: HttpClient) { };
 
   getUsers(amount: number): Observable<any> {
 
@@ -25,6 +30,7 @@ export class GetUsersService {
         dataCollector.push(data);
 
         if ((amount) === dataCollector.length) {
+          this.usersList = dataCollector;
           this.users$.next(dataCollector);
           this.users$.complete();
         };
@@ -39,6 +45,10 @@ export class GetUsersService {
   };
 
 
+  setSelectedUser(userDetailsModel: UserModel) {
+    this.activeUser = userDetailsModel;
+    this.selectedUser$.next(userDetailsModel);
+  };
 
 
 
