@@ -9,11 +9,13 @@ import { RouterModule } from '@angular/router';
 import { UserDetailsListComponent } from './components/user-details-list/user-details-list.component';
 import { MatListModule } from '../../node_modules/@angular/material/list';
 import { VoteCounterService } from './shared/services/vote-counter.service';
+import { UppercasePipe } from './shared/pipes/uppercase.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserDetailsListComponent,
+    UppercasePipe
   ],
   imports: [
     BrowserModule,

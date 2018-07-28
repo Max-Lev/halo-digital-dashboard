@@ -3,19 +3,47 @@
 
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Hi, my name is</mat-card-title>
-      <mat-card-title>
-        <h1>{{userDetailsModel.name.first}} {{userDetailsModel.name.last}}</h1>
-      </mat-card-title>
     </mat-card-header>
 
-    <img mat-card-image [src]="userDetailsModel.picture.large" alt="">
+    <img mat-card-image [src]="userDetailsModel.picture.large">
+
+    <mat-card-title>
+      <div class="data-container" [innerHtml]="userData"></div>
+    </mat-card-title>
+
     <mat-card-content>
-      <!-- <p>
-        <button class="user">user</button>
-      </p> -->
-      <ng-content></ng-content>
+
+      <ul class="values_list horizontal_center" id="values_list">
+
+        <li appActive (dataEmitter)="dataEmitterHandeler($event)" [user]="userShortDetails" [activeProp]="'name'" 
+        attr.data-title="<span>Hi my name is,</span><br/> <h5>{{userShortDetails.name.data}}</h5>"
+          [ngClass]="{'active':userShortDetails.name.isActive}" class="name active"></li>
+
+        <li appActive (dataEmitter)="dataEmitterHandeler($event)" [user]="userShortDetails" [activeProp]="'email'" 
+        attr.data-title="<span>My email address is,</span><br/> <h5>{{userDetailsModel.email}}</h5>"
+          [ngClass]="{'active':userShortDetails.email.isActive}" class="email"></li>
+
+        <li appActive (dataEmitter)="dataEmitterHandeler($event)" [user]="userShortDetails" 
+        attr.data-title="My birthday is,<br/> <h5>{{userDetailsModel.dob.date}}</h5>"
+          [activeProp]="'birthday'" [ngClass]="{'active':userShortDetails.birthday.isActive}" class="birthday"></li>
+
+        <li appActive (dataEmitter)="dataEmitterHandeler($event)" [user]="userShortDetails" attr.data-title="My address is,<br/> 
+        <h5>{{userDetailsModel.location.street}}</h5>"
+          [activeProp]="'location'" [ngClass]="{'active':userShortDetails.location.isActive}" class="location"></li>
+
+        <li appActive (dataEmitter)="dataEmitterHandeler($event)" [user]="userShortDetails" attr.data-title="My phone number is,<br/> 
+        <h5>{{userDetailsModel.phone}}</h5>"
+          [activeProp]="'phone'" [ngClass]="{'active':userShortDetails.phone.isActive}" class="phone"></li>
+
+        <li appActive (dataEmitter)="dataEmitterHandeler($event)" [user]="userShortDetails" attr.data-title="My password is,<br/> 
+        <h5>{{userDetailsModel.login.password}}</h5>"
+          [activeProp]="'password'" [ngClass]="{'active':userShortDetails.password.isActive}" data-caps="false" class="password"></li>
+      </ul>
+
     </mat-card-content>
-  </mat-card>
+    <mat-card-content>
+        <ng-content></ng-content>
+    </mat-card-content>
+  </mat-card> 
 
 </section>

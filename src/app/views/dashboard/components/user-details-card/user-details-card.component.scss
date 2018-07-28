@@ -6,6 +6,7 @@
   padding-top: 10%;
   box-sizing: border-box;
   justify-content: center;
+  background-color: #15154f;
 }
 
 img {
@@ -48,4 +49,75 @@ mat-card-title {
   text-align: center;
   height: 50px;
   justify-content: center;
+}
+
+.values_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  float: left;
+}
+
+.values_list li {
+  cursor: pointer;
+  display: block;
+  width: 40px;
+  height: 48px;
+  float: left;
+  margin: 20px;
+  background-image: url(https://randomuser.me/img/card_icons.png);
+  background-size: 378px;
+  -webkit-transition: all .25s ease-out;
+  transition: all .25s ease-out;
+  &.name {
+    background-position: 0 -48px;
+    &.active {
+      background-position: 0 -96px;
+    }
+  }
+  &.email {
+    background-position: -68px -48px;
+    &.active {
+      background-position: -68px -96px;
+    }
+  }
+  &.birthday {
+    background-position: -135px -48px;
+    &.active {
+      background-position: -135px -96px;
+    }
+  }
+  &.location {
+    background-position: -203px -48px;
+    &.active {
+      background-position: -203px -96px;
+    }
+  }
+  &.phone {
+    background-position: -270px -48px;
+    &.active {
+      background-position: -270px -96px;
+    }
+  }
+  &.password {
+    background-position: -338px -48px;
+    &.active {
+      background-position: -338px -96px;
+    }
+  }
+}
+
+.values_list li:before {
+  content: attr(data-label);
+  opacity: 0;
+}
+
+:host {
+  .data-container {
+    h4 {
+      margin: 0;
+      padding: 0 !important;
+    }
+  }
 }
